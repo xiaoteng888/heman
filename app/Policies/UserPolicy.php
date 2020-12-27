@@ -18,4 +18,9 @@ class UserPolicy
     {
        return $current->id == $user->id;
     }
+
+    public function destroy(User $current,User $user)
+    {
+      return $current->is_admin && $current->id !== $user->id && !$user->is_admin;
+    }
 }
