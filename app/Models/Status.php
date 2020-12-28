@@ -12,4 +12,9 @@ class Status extends Model
     {
     	return $this->belongsTo(User::class);
     }
+
+    public function feed()
+    {
+    	return $this->orderBy('created_at','desc')->select();
+    }
 }
