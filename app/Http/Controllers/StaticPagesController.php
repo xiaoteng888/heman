@@ -12,11 +12,11 @@ class StaticPagesController extends Controller
     {
     	return view('static_pages/help');
     }
-    public function home(Status $status)
+    public function home(User $user)
     {   
         $feed_items = [];
         if(Auth::check()){
-           $feed_items = $status->feed()->paginate(15);   
+           $feed_items = Auth::user()->feed()->paginate(15);   
         }
     	return view('static_pages/home',compact('feed_items'));
     }
