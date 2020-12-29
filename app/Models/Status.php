@@ -15,6 +15,8 @@ class Status extends Model
 
     public function feed()
     {
-    	return $this->orderBy('created_at','desc')->select();
+    	$userids = User::get()->pluck('id')->toArray();
+        //$userids = implode(',', $userids);  
+    	return $this->whereIn('user_id',$userids)->orderBy('created_at','desc')->select();
     }
 }
