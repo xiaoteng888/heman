@@ -12,7 +12,7 @@ class StaticPagesController extends Controller
     {
     	return view('static_pages/help');
     }
-    public function home(User $user)
+    public function home()
     {   
         $feed_items = [];
         if(Auth::check()){
